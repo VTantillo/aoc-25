@@ -1,9 +1,10 @@
-from puzzles.day_2 import pt_2
+from puzzles.day_3 import pt_1
 
 
 def main():
-    # pt_2("./input/day2-test.txt")
-    pt_2("./input/input2.txt")
+    res = pt_1("./input/input3.txt")
+    # pt_1("./input/input2.txt")
+    print(res)
 
 
 if __name__ == "__main__":
