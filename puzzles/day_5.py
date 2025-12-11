@@ -76,29 +76,20 @@ def pt_2(input_path: str) -> int:
             # print("in remove", remove_ranges)
             continue
 
-        min, max = i
+        i_min, i_max = i
         for j in fresh_ranges:
             if j in checked_ranges or j in remove_ranges:
                 continue
 
             # print("checking against", j)
-            m, n = j
-            if (m == min or m == max or m - 1 == max) and max < n:
-                max = n
+            j_min, j_max = j
+            if i_min == j_min or i_max >= j_min or i_max + 1 == j_min or i_max == j_max:
+                if j_max > i_max:
+                    i_max = j_max
                 remove_ranges.append(j)
-                continue
-
-            if m != min and max > m:
-                if max < n:
-                    max = n
-                remove_ranges.append(j)
-            # print("curr", (min, max))
 
         checked_ranges.append(i)
-        new_ranges.add((min, max))
-        # print(new_ranges)
-        # print("remove", remove_ranges)
-        # print("new", new_ranges)
+        new_ranges.add((i_min, i_max))
 
     print("new", len(new_ranges))
 
@@ -113,7 +104,7 @@ def pt_2(input_path: str) -> int:
 
         diff = max - min
         total += max - min + 1
-        print(f"{i} -\t {diff} -\t {total}")
+        print(f"{i} \t {diff}")
 
     return total
 
@@ -121,3 +112,5 @@ def pt_2(input_path: str) -> int:
 # 371289297497547 too high
 # 352478980357921 too high
 # 352478980357908
+# 352478980357916
+# 345755049374932 RIGHT ANSWER
