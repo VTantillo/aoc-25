@@ -7,9 +7,13 @@ def pt_1(input_path: str) -> int:
     for line in lines:
         print(line)
 
+    return 0
+
 
 def pt_2(input_path: str) -> int:
     lines = read_input(input_path)
 
     for line in lines:
         print(line)
+
+    return 0
